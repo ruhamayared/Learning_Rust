@@ -7,9 +7,13 @@ use std::io;
 use std::io::{BufRead, BufReader, ErrorKind, Write};
 
 fn main() {
-    let my_tuple: (u8, String, f64) = (31, "Ruhama".to_string(), 50_000.00);
+    let mut st1 = String::new();
+    st1.push('A');
+    st1.push_str(" word");
+    for word in st1.split_whitespace() {
+        println!("{}", word)
+    }
 
-    println!("Name: {}", my_tuple.1);
-    let (v1, v2, v3) = my_tuple;
-    println!("Age: {}", v1)
+    let st2 = st1.replace("A", "Another");
+    println!("{}", st2)
 }
