@@ -1,7 +1,6 @@
 #![allow(unused)]
 
 use rand::Rng;
-// use std::arch::aarch64::ST;
 use std::cmp::Ordering;
 use std::collections::HashMap;
 use std::fs::File;
@@ -9,20 +8,15 @@ use std::io;
 use std::io::{BufRead, BufReader, ErrorKind, Write};
 
 fn main() {
-    let mut heroes = HashMap::new();
-    heroes.insert("Superman", "Clark Kent");
-    heroes.insert("Batman", "Bruce Wayne");
-    heroes.insert("The Flash", "Barry Allen");
-
-    for (k, v) in heroes.iter() {
-        println!("{} = {}", k, v)
+    struct Customer {
+        name: String,
+        address: String,
+        balance: f32,
     }
-
-    if heroes.contains_key(&"Batman") {
-        let the_batman = heroes.get(&"Batman");
-        match the_batman {
-            Some(x) => println!("Batman is a hero!"),
-            None => println!("Batman is not a hero."),
-        }
-    }
+    let mut bob: Customer = Customer {
+        name: String::from("Bob Smith"),
+        address: String::from("555 Main St"),
+        balance: 234.50,
+    };
+    bob.address = String::from("505 Main Street")
 }
