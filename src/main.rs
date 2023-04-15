@@ -6,15 +6,13 @@ use std::fs::File;
 use std::io;
 use std::io::{BufRead, BufReader, ErrorKind, Write};
 
-fn sum_list(list: &[i32]) -> i32 {
-    let mut sum = 0;
-    for &val in list.iter() {
-        sum += &val;
-    }
-    sum
+use std::ops::Add;
+
+fn get_sum_gen<T: Add<Output = T>>(x: T, y: T) -> T {
+    return x + y;
 }
 
 fn main() {
-    let num_list = vec![1, 2, 3, 4, 5];
-    println!("Sum of list = {}", sum_list(&num_list));
+    println!("5 + 4 = {}", get_sum_gen(5, 4));
+    println!("5.2 + 4.6 = {}", get_sum_gen(5.2, 4.6));
 }
