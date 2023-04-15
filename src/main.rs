@@ -1,18 +1,27 @@
 #![allow(unused)]
 
 use rand::Rng;
+// use std::arch::aarch64::ST;
 use std::cmp::Ordering;
 use std::fs::File;
 use std::io;
 use std::io::{BufRead, BufReader, ErrorKind, Write};
 
-use std::ops::Add;
+fn print_str(x: String) {
+    println!("A string {}", x);
+}
 
-fn get_sum_gen<T: Add<Output = T>>(x: T, y: T) -> T {
-    return x + y;
+fn print_return_str(x: String) -> String {
+    println!("A string {}", x);
+    x
+}
+
+fn change_string(name: &mut String) {
+    name.push_str(" is happy!");
+    println!("Message: {}", name)
 }
 
 fn main() {
-    println!("5 + 4 = {}", get_sum_gen(5, 4));
-    println!("5.2 + 4.6 = {}", get_sum_gen(5.2, 4.6));
+    let mut str1 = String::from("Ruhama");
+    change_string(&mut str1)
 }
